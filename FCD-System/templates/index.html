@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>FCD System</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+
+    <!-- Favicon -->
+    <link href="{{ url_for('static', filename='img/favicon.ico') }}" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500&family=Jost:wght@500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="{{ url_for('static', filename='animate/animate.min.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='owlcarousel/assets/owl.carousel.min.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='lightbox/css/lightbox.min.css') }}" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="{{ url_for('static', filename='css/index_style.css') }}" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container-xxl bg-white p-0">
+        <!-- Spinner Start -->
+        <div id="spinner"
+            class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+            <div class="spinner-grow text-primary" style="width: 3rem; height: 3rem;" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+        </div>
+        <!-- Spinner End -->
+
+
+        <!-- Navbar & Hero Start -->
+        <div class="container-xxl position-relative p-0">
+            <nav class="navbar navbar-expand-lg navbar-light px-4 px-lg-5 py-3 py-lg-0">
+                <a href="/home" class="navbar-brand p-0">
+                    <h1 class="m-0">FCD System</h1>
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                    <span class="fa fa-bars"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <div class="navbar-nav mx-auto py-0">
+                        <a href="/home" class="nav-item nav-link active">Home</a>
+                        <a href="/criminal_data" class="nav-item nav-link">Criminals</a>
+<!--                        <a href="#about" class="nav-item nav-link">About</a>-->
+<!--                        <a href="#features" class="nav-item nav-link">Features</a>-->
+<!--                        <a href="#testimonial" class="nav-item nav-link">Testimonial</a>-->
+                        <div class="nav-item dropdown">
+                            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Account</a>
+                            <div class="dropdown-menu m-0">
+                                <a href="/change_email" class="dropdown-item">Change Email</a>
+                                <a href="/reset_password" class="dropdown-item">Change Password</a>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="/logout" class="btn rounded-pill py-2 px-4 ms-3 d-none d-lg-block">Logout</a>
+                </div>
+            </nav>
+
+            <div class="container-xxl bg-primary hero-header">
+                <div class="container px-lg-5">
+                    <div class="row g-5 align-items-end">
+                        <div class="col-lg-6 text-center text-lg-start">
+                            <h1 class="text-white mb-4 animated slideInDown">Real-time Fugitive Criminal Detection
+                                System</h1>
+                            <p class="text-white pb-3 animated slideInDown">The system works using deep learning to
+                                analyze videos of
+                                people captured by camers.The deep learning modal is trained on the dataset of
+                                known fugitives and mugshots. When the video is captured, the deep learning modal is used to identify the person in the video. If the person is a wanted criminal,
+                                the system will alert law enforcement agencies
+                            </p>
+                        </div>
+                        <div class="col-lg-6 text-center text-lg-start">
+                            <img class="animated zoomIn" src="../static/img/hero.png" alt=""
+                                style="max-width: 140%; margin-left: -60px; margin-top: -64px;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Navbar & Hero End -->
+
+
+        <!-- Feature Start -->
+        <div class="container-xxl py-5">
+            <div class="container py-5 px-lg-5">
+                <div class="row g-4">
+                    <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
+                        <div class="feature-item bg-light rounded text-center p-4">
+                            <h4 class="mb-3">Open the Live Webcam to Detect Criminal</h4>
+                            <p class="m-0">Open your webcam to detect and find fugitive criminals. This feature allows
+                                you to do surveillance and find fugitive criminals on the live-streaming video
+                            </p>
+                            <a href="/webcam" class="btn btn-primary py-sm-3 px-sm-5 rounded-pill mt-3">Open Webcam</a>
+                        </div>
+
+                    </div>
+                    <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.5s">
+                        <div class="feature-item bg-light rounded text-center p-4">
+                            <h4 class="mb-3">Upload Video to Detect Criminal</h4>
+                            <p class="m-0">upload the video to detect and find fugitive criminals.
+                                this feature uses facial recognition technology to identify
+                                 wanted criminals in the video.
+                            </p>
+                            <a href="/FrontPage" class="btn btn-primary py-sm-3 px-sm-5 rounded-pill mt-3">Upload Video</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Feature End -->
+
+
+        <!-- About Start -->
+        <div class="container-xxl py-5" id="about">
+            <div class="container py-5 px-lg-5">
+                <div class="row g-5 align-items-center">
+                    <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
+                        <h3 class="section-title text-secondary">About Us<span></span></h3>
+                        <p class="mb-4" style="margin-top: 15px">Welcome to our website for the Real-Time Fugitive
+                            Criminal
+                            Detection. Here, we delve into the innovative realm of utilizing
+                            cutting-edge technologies to address critical challenges in criminal detection. Our project
+                            aims to leverage the power of deep learning algorithms, real-time data processing, and
+                            intuitive user interfaces to create an advanced system that aids law enforcement agencies in
+                            identifying and apprehending fugitive criminals efficiently. Through a harmonious fusion of
+                            hardware and software, our solution aims to contribute to the enhancement of public safety
+                            and law enforcement efforts. Explore our website to discover the intricacies of our project,
+                            from methodologies and implementation to a result and future possibilities. Join us on this
+                            transformative journey at the crossroads of technology and security.
+                        </p>
+                    </div>
+                    <div class="col-lg-6">
+                        <img class="img-fluid wow zoomIn" data-wow-delay="0.5s" src="../static/img/about.png">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- About End -->
+
+
+        <!-- Service Start -->
+        <div class="container-xxl py-5" id="features">
+            <div class="container py-5 px-lg-5">
+                <div class="wow fadeInUp" data-wow-delay="0.1s">
+                    <h3 class="section-title text-secondary justify-content-center"><span></span>Features<span></span>
+                    </h3>
+                </div>
+                <div class="row g-4" style="margin-top: 15px">
+                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                        <div class="service-item d-flex flex-column text-center rounded">
+                            <div class="service-icon flex-shrink-0">
+                                <i class="fa fa-images fa-2x"></i>
+                            </div>
+                            <h5 class="mb-3">Large Dataset of Fugitives</h5>
+                            <p class="m-0">The system uses a large dataset of known fugitives and mugshots in Pakistan.
+                                This allows the system to identify fugitives with a high degree of accuracy.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+                        <div class="service-item d-flex flex-column text-center rounded">
+                            <div class="service-icon flex-shrink-0">
+                                <i class="fa fa-smile fa-2x"></i>
+                            </div>
+                            <h5 class="mb-3">User-Friendly Interface</h5>
+                            <p class="m-0">The User-friendly interface makes it easy for law enforcement agencies to
+                                use. This allows them to quickly and easily identify fugitives and track their
+                                movements.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+                        <div class="service-item d-flex flex-column text-center rounded">
+                            <div class="service-icon flex-shrink-0">
+                                <i class="fa fa-cogs fa-2x"></i>
+                            </div>
+                            <h5 class="mb-3">Updated Dataset & Model</h5>
+                            <p class="m-0">Continuously updated Dataset to improve the Model's performance.
+                                This ensures that the system is always up-to-date with the latest information on
+                                fugitive criminals.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                        <div class="service-item d-flex flex-column text-center rounded">
+                            <div class="service-icon flex-shrink-0">
+                                <i class="fa fa-fist-raised fa-2x"></i>
+                            </div>
+                            <h5 class="mb-3">Fight Against Terrorism</h5>
+                            <p class="m-0">The website makes it easy to do detection. This allows agencies to quickly
+                                and easily identify fugitives and track their
+                                movements.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+                        <div class="service-item d-flex flex-column text-center rounded">
+                            <div class="service-icon flex-shrink-0">
+                                <i class="fa fa-shield-alt fa-2x"></i>
+                            </div>
+                            <h5 class="mb-3">Capturing Escaped Prisoners</h5>
+                            <p class="m-0">The system can help in capturing escaped prisoners by identifying them using
+                                surveillance cameras and improve the security.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+                        <div class="service-item d-flex flex-column text-center rounded">
+                            <div class="service-icon flex-shrink-0">
+                                <i class="fas fa-eye fa-2x"></i>
+                            </div>
+                            <h5 class="mb-3">Identifying Repeat Offenders</h5>
+                            <p class="m-0">The system can help to identify repeat offenders and track their movements.
+                                This can help to prevent them from committing further crimes.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Service End -->
+
+
+        <!-- Testimonial Start -->
+        <div class="container-xxl py-5 wow fadeInUp" data-wow-delay="0.1s" id="testimonial">
+            <div class="container py-5 px-lg-5">
+                <h3 class="section-title text-secondary justify-content-center"><span></span>Testimonial<span></span>
+                </h3>
+                <div class="row g-5 justify-content-center" style="margin-top: 25px">
+                    <div class="testimonial-item bg-light rounded my-4" style="width: 45%; padding-bottom: 30px;">
+                        <p class="fs-5"><i class="fa fa-quote-left fa-4x text-primary mt-n4 me-3"></i>"Addressing
+                            recidivism requires cutting-edge tools. The project's commitment to identifying repeat
+                            offenders aligns seamlessly with our mission to create safer communities and a stronger
+                            criminal justice system."
+                        </p>
+                        <div class="d-flex align-items-center" style="align-items: center;">
+                            <img class="img-fluid flex-shrink-0 rounded-circle" src="../static/img/testimonial-2.jpg"
+                                style="width: 65px; height: 65px;">
+                            <div class="ps-4">
+                                <h5 class="mb-1">Akhtar Hayat Gandapur</h5>
+                                <span>Police Inspector General</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-item bg-light rounded my-4" style="width: 45%; padding-bottom: 30px; margin-left: 25px;">
+                        <p class="fs-5"><i class="fa fa-quote-left fa-4x text-primary mt-n4 me-3"></i>"I always
+                            prioritize initiatives that bolster our crime prevention strategies.
+                            The project's focus on identifying repeat offenders is a crucial step toward breaking the
+                            cycle of crime and fostering a secure environment for all."
+                        </p>
+                        <div class="d-flex align-items-center" style="align-items: center;">
+                            <img class="img-fluid flex-shrink-0 rounded-circle" src="../static/img/testimonial-3.jpg"
+                                style="width: 65px; height: 65px;">
+                            <div class="ps-4">
+                                <h5 class="mb-1">Akbar Nasir Khan</h5>
+                                <span>Police Inspector General</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <!-- Testimonial End -->
+
+
+        <!-- Team Start -->
+        <div class="container-xxl py-5" id="ourteam">
+            <div class="container py-5 px-lg-5">
+                <div class="wow fadeInUp" data-wow-delay="0.1s">
+                    <h3 class="section-title text-secondary justify-content-center"><span></span>Our Team<span></span>
+                    </h3>
+                </div>
+                <div class="row g-5 justify-content-center" style="margin-top: 25px">
+                    <div class="col-lg-5 col-md-6 col-12 wow fadeInUp" style="max-width: 350px; margin-bottom: 40px"
+                        data-wow-delay="0.1s">
+                        <div class="team-item bg-light rounded">
+                            <div class="text-center border-bottom p-4">
+                                <img class="img-fluid rounded-circle mb-4" src="../static/img/rza.jpg" alt="">
+                                <h5>Dr. Riaz-Ul-Amin</h5>
+                                <span>Project Supervisor</span><br>
+                                <span>Focal Person CS Dept. UO</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-5 col-md-6 col-12 wow fadeInUp" style="max-width: 350px; margin-bottom: 40px;"
+                        data-wow-delay="0.1s">
+                        <div class="team-item bg-light rounded">
+                            <div class="text-center border-bottom p-4">
+                                <img class="img-fluid rounded-circle mb-4" src="../static/img/jvd.jpg" alt="">
+                                <h5>Dr. Javed Rasheed</h5>
+                                <span>Project Co. Supervisor</span><br>
+                                <span>Network Administrator UO</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row g-4">
+                    <div class="col-lg-4 col-md-6 col-12 wow fadeInUp" data-wow-delay="0.1s">
+                        <div class="team-item bg-light rounded">
+                            <div class="text-center border-bottom p-4">
+                                <img class="img-fluid rounded-circle mb-4" src="../static/img/abd.jpg" alt="">
+                                <h5>Abdullah Shafiq</h5>
+                                <span>Team Member</span><br>
+                                <span>Student</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-12 wow fadeInUp" data-wow-delay="0.3s">
+                        <div class="team-item bg-light rounded">
+                            <div class="text-center border-bottom p-4">
+                                <img class="img-fluid rounded-circle mb-4" src="../static/img/aws.jpg" alt="">
+                                <h5>M. Awais Jameel</h5>
+                                <span>Team Leader</span><br>
+                                <span>Student</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-12 wow fadeInUp" data-wow-delay="0.5s">
+                        <div class="team-item bg-light rounded">
+                            <div class="text-center border-bottom p-4">
+                                <img class="img-fluid rounded-circle mb-4" src="../static/img/abk.jpg" alt="">
+                                <h5>M. AbuBakar</h5>
+                                <span>Team Member</span><br>
+                                <span>Student</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Team End -->
+
+
+        <!-- Footer Start -->
+        <div class="container-fluid bg-primary text-light footer wow fadeIn" data-wow-delay="0.1s">
+            <div class="container py-5 px-lg-5">
+                <div class="row g-5" style="margin-left: 200px;">
+                    <div class="col-md-6 col-lg-6">
+                        <p class="section-title text-white h5 mb-4">Social Link<span></span></p>
+                        <a class="btn btn-link" href="">Facebook</a>
+                        <a class="btn btn-link" href="">Instagram</a>
+                        <a class="btn btn-link" href="">Twitter</a>
+                        <a class="btn btn-link" href="">LinkedIn</a>
+                    </div>
+                    <div class="col-md-6 col-lg-6">
+                        <p class="section-title text-white h5 mb-4">Quick Link<span></span></p>
+                        <a class="btn btn-link" href="/home">Home</a>
+                        <a class="btn btn-link" href="#about">About Us</a>
+                        <a class="btn btn-link" href="#testimonial">Testimonial</a>
+                        <a class="btn btn-link" href="#ourteam">Our Team</a>
+                    </div>
+                </div>
+            </div>
+            <div class="container px-lg-5">
+                <div class="copyright">
+                    <div class="row">
+                        <div class="col-md-12 text-center mb-3 mb-md-0">
+                            &copy; <a class="border-bottom" href="/home">FCD System</a>, All Right Reserved.
+                            Designed By <a class="border-bottom" href="/home">UO</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Footer End -->
+
+
+        <!-- Back to the Top -->
+        <a href="#" class="btn btn-lg btn-secondary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+    </div>
+    </div>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="{{ url_for('static', filename='wow/wow.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='easing/easing.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='waypoints/waypoints.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='counterup/counterup.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='owlcarousel/owl.carousel.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='isotope/isotope.pkgd.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='lightbox/js/lightbox.min.js') }}"></script>
+
+    <!-- Template Javascript -->
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+
+</html>

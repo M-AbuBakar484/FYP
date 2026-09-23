@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Admin Login Page </title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+   </head>
+<body>
+  <div class="wrapper">
+    <img src="/static/img/logo.png" alt="logo" style="width: 50%; margin-left: 23%; margin-bottom: -10px; margin-top: -10px;">
+    <h3 style="text-align: center; margin-bottom: -20px; ">Admin Login</h3>
+    <form method="post" action="/admin">
+      <div class="input-box">
+        <input type="text" placeholder="Enter Username" name="name" required>
+      </div>
+      <div class="input-box">
+        <input type="password" placeholder="Enter Password" name="password" required>
+      </div>
+      <a href="/admin_forget_password">Forget Password?</a>
+
+      {% if error %}
+      <center><strong style="color:red"> {{ error }} </strong></center>
+      {% endif %}
+
+      <div class="input-box button">
+        <input type="Submit" value="Login Now">
+      </div>
+
+      {% if show_registration_link %}
+      <div class="text">
+        <h3>Register as an Admin <a href="/admin_add_user">Register now</a></h3>
+      </div>
+      {% endif %}
+
+      <div class="text">
+      </div>
+    </form>
+  </div>
+</body>
+
+</html>

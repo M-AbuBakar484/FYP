@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/admin_panel.css') }}">
+
+    <!-- Unicons CSS -->
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css" />
+
+    <style>
+        /* Add your CSS styles here */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: auto;
+            padding: 20px;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th,
+        td {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <!-- navbar starts -->
+
+    <nav class="nav">
+        <a href="/admin_panel" class="logo">FCDS Admin</a>
+        <ul class="nav-links">
+          <li><a href="/admin_panel">Home</a></li>
+          <li><a href="/admin_table">View C.O's</a></li>
+          <li><a href="/admin_add_user">Register C.O</a></li>
+            <li><a href="/register">Register S.R.I</a></li>
+          <li><a href="/admin_reset_password">Change Password</a></li>
+          <li><a href="/admin_logout">Logout</a></li>
+        </ul>
+      </nav>
+
+    <!-- navbar ends -->
+
+
+
+
+    <div class="container">
+
+        <!-- User Table -->
+        <div class="wrapper">
+            <form method="post" action="/admin_table">
+                <div class="search-box">
+                    <i class="uil uil-search"></i>
+                    <input type="text" id="searchUser" name="searchUser" placeholder="Search here..." />
+                    <button class="button" type="submit" name="form_action" value="search">Search</button>
+                </div>
+            </form>
+
+            <form method="post" action="/admin_table">
+                <input type="hidden" name="resetTable" value="true">
+                <button class="btn" type="submit" name="form_action" value="reset">View City Officers</button>
+            </form>
+
+            <table id="userTable">
+                <thead>
+                    <tr>
+                        <th>User ID</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody style="text-align: center;">
+                    {% for user in users %}
+                    <tr id="user_row_{{ user[0] }}">
+                        <td>{{ user[0] }}</td>
+                        <td>{{ user[1] }}</td>
+                        <td>{{ user[2] }}</td>
+                        <td>
+                            {% if user[0] != 1 %}
+                            <form method="post" action="/admin_table">
+                                <input type="hidden" name="deleteUserId" value="{{ user[0] }}">
+
+                                <button type="submit" style="padding: 10%; background-color: #4070f4; color: #fff; border: none; border-radius: 6px; cursor: pointer;">Delete</button>
+                            </form>
+                            {% endif %}
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
+
+    <script>
+        const deleteButtons = document.querySelectorAll('.deleteButton');
+
+        deleteButtons.forEach(button => {
+            button.addEventListener('click', event => {
+                event.preventDefault();
+                const userId = button.getAttribute('data-userid');
+                deleteUser(userId);
+            });
+        });
+
+        async function deleteUser(userId) {
+            try {
+                event.preventDefault(); // Prevent form submission
+                const response = await fetch(`/admin_table`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded',
+                    },
+                    body: `deleteUserId=${userId}`,
+                });
+
+                const data = await response.json();
+
+                if (data.success) {
+                    const userRow = document.getElementById(`user_row_${userId}`);
+                    if (userRow) {
+                        userRow.remove(); // Remove the row from the table
+                    } else {
+                        console.log(`User row with ID ${userId} not found.`);
+                    }
+                } else {
+                    console.log('Error deleting user.');
+                }
+            } catch (error) {
+                console.error(error);
+            }
+        }
+    </script>
+
+
+
+</body>
+
+</html>

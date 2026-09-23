@@ -1,0 +1,15 @@
+ultralytics==8.0.20
+numpy
+flask
+matplotlib
+flask_wtf
+wtforms~=3.0.1
+opencv-python~=4.8.0.76
+werkzeug~=2.3.7
+flask~=2.3.3
+mysql.connector
+mysql-connector
+mysql-connector-python
+passlib
+flask_mail
+pymysql

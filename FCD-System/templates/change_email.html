@@ -1,0 +1,29 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Change Email</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style3.css') }}">
+</head>
+<body>
+    <div class="wrapper">
+    <img src="/static/img/logo.png" alt="logo" style="width: 50%; margin-left: 23%; margin-bottom: -10px; margin-top: -10px;">
+    <h3 style="text-align: center; margin-bottom: -20px; ">Change Email</h3>
+        <form method="POST" action="/change_email">
+            <div class="input-box">
+                <input type="text" placeholder="Enter New Email" name="new_email" required>
+            </div>
+            <div class="input-box button">
+                <input type="Submit" value="Confirm">
+            </div>
+            <a href="/home">Go back to HomePage</a>
+        </form>
+
+    </div>
+</body>
+</html>

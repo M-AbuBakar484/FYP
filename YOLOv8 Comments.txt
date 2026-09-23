@@ -1,0 +1,45 @@
+# importing os to create a helper variable, which allows us to manage ad navigate different paths in the code easily.
+import os
+
+# glob is used to return all the file paththat match a specific pattern, 
+# like if we want the input images file path, we can easily return it using glob library.
+import glob
+
+# 'Image' and 'display' libraries are used to display any output image like predicted output image or any input image into our google colab notebook.
+# single image can be displayed using 'Image' library and in a single cell multiple images can be displayed by importing 'display' library.
+from IPython.display import Image, display
+
+# this function is used to clear the output in our notebook
+display.clear_output()
+
+# here we check whether we have access to the GPU or not
+!nvidia-smi
+
+..
+..
+
+# installing ultralatics using pip install will install yolov8 version, because yolov8 is the first iteration of YOLO that has its own official package.
+!pip install ultralytics==8.0.20
+
+# checking whether YOLOv8 is installed and its workng fine
+import ultralytics
+ultralytics.checks()
+
+..
+..
+
+# confusion_matrix.png is the chart that shows how our model handles different classes,
+# %age in the Box within matrix shows that the model detected object correctly,
+# %age without the box within the matrix shows the model get the bounding box but the object is incorrectly classified with other object,
+# %age in horizontal line shows that the model is unable to detect the object.
+
+
+
+
+# the graph of Traning and Validation loss in tha results.png,
+# box loss and class loss is important,
+# the behavior of the model is convincing the model is coverging, Training more will give better results.
+
+
+
+
